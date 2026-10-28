@@ -1,0 +1,22 @@
+import { ArrowRight, BadgeCheck, Eye, Fingerprint, SearchCheck, ShieldCheck, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const features = [
+  { icon: SearchCheck, title: "Contextual signals", text: "Surface patterns such as requests for upfront payment, interpreted in context—not isolated keywords." },
+  { icon: Eye, title: "Understand the why", text: "Every indicator comes with a plain-language explanation so you can assess the evidence yourself." },
+  { icon: Fingerprint, title: "Privacy-conscious", text: "No account required. Scans are only stored when you choose to save them." },
+];
+
+export default function Landing() {
+  return <div className="landing-page">
+    <nav className="landing-nav"><Link to="/" className="brand landing-brand"><span className="brand-mark"><ShieldCheck size={19} /></span><span>scam<span className="brand-light">shield</span><small>AI · OPPORTUNITY CHECK</small></span></Link><div className="landing-links"><Link to="/about">How it works</Link><Link to="/dashboard">Dashboard</Link><Link className="button button-primary button-small" to="/analyze">Analyze a job <ArrowRight size={15} /></Link></div></nav>
+    <section className="hero">
+      <div className="hero-copy"><div className="eyebrow"><span className="eyebrow-line" /> A clearer first look at job offers</div><h1>Opportunity looks promising.<br /><span>Is the offer?</span></h1><p className="hero-lede">Review job descriptions and recruiter messages for common risk signals. Get a transparent estimate, then verify the details for yourself.</p><div className="hero-actions"><Link to="/analyze" className="button button-primary">Analyze a job <ArrowRight size={17} /></Link><Link to="/about" className="button button-quiet">See how it works</Link></div><div className="hero-trust"><span><BadgeCheck size={15} /> Explanations, not just a score</span><span><ShieldCheck size={15} /> No guarantee or verdict</span></div></div>
+      <div className="hero-visual"><div className="hero-orbit orbit-one" /><div className="hero-orbit orbit-two" /><div className="hero-card"><div className="preview-top"><span className="preview-icon"><Sparkles size={17} /></span><div><strong>Sample screening</strong><small>DEMONSTRATION ONLY</small></div><span className="preview-dots">•••</span></div><div className="preview-divider" /><div className="preview-score"><span className="mini-ring"><b>—</b></span><span><strong>Example result</strong><small>Illustrative interface preview</small></span></div><div className="demo-label">No real posting was analyzed. Your result depends on the text you submit.</div><div className="preview-indicator"><span className="indicator-mark">i</span><span><strong>Signals need context</strong><small>Review the explanation and verify independently.</small></span></div></div><div className="floating-chip"><span className="floating-pulse" /> Screening available</div><div className="hero-cross cross-one">✳</div><div className="hero-cross cross-two">+</div></div>
+    </section>
+    <section className="how-strip"><span className="how-label">A thoughtful first step</span><span>01 <b>Paste</b> the opportunity</span><span className="strip-arrow">→</span><span>02 <b>Review</b> its signals</span><span className="strip-arrow">→</span><span>03 <b>Verify</b> through trusted channels</span></section>
+    <section className="features-section"><div className="section-intro"><div className="eyebrow">BUILT FOR BETTER JUDGMENT</div><h2>Clarity over certainty.</h2><p>ScamShield helps you notice what to check next—not make a decision for you.</p></div><div className="feature-grid">{features.map(({ icon: Icon, title, text }, i) => <article className="feature-card" key={title}><span className="feature-index">0{i + 1}</span><span className="feature-icon"><Icon size={19} /></span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
+    <section className="landing-cta"><div><div className="eyebrow">READY WHEN YOU ARE</div><h2>Take a closer look at your next opportunity.</h2><p>An automated risk estimate can miss things. Keep your judgment—and verify independently.</p></div><Link to="/analyze" className="button button-primary">Start an analysis <ArrowRight size={16} /></Link></section>
+    <footer className="landing-footer"><span>© 2026 ScamShield AI · Student portfolio project</span><div><Link to="/about">Methodology</Link><Link to="/dashboard">Dashboard</Link></div><span>Not a guarantee of legitimacy.</span></footer>
+  </div>;
+}

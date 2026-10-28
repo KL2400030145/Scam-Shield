@@ -1,0 +1,16 @@
+import { AlertTriangle, BadgeInfo, CheckCircle2, ShieldCheck } from "lucide-react";
+import { PageHeading } from "../components/Shared";
+
+const steps = [
+  ["01", "Text screening", "The submitted text is normalized and checked for contextual warning patterns, such as an explicit request to pay a fee before employment."],
+  ["02", "Transparent scoring", "Each distinct rule contributes a documented number of points. Repeated matches for the same signal do not stack. The total is bounded from 0 to 100."],
+  ["03", "Human verification", "Review the explanation, then independently check the employer, role, and communication using contact details from official sources."],
+];
+
+export default function About() {
+  return <div className="about-page"><PageHeading eyebrow="ABOUT THE SCREENING" title="Methodology & limitations" description="What this tool can—and cannot—tell you about a job opportunity." />
+    <div className="method-grid"><section className="panel method-main"><div className="about-intro-icon"><ShieldCheck size={20} /></div><h2>A signal is a prompt to check—not a verdict.</h2><p>Recruitment fraud can cause financial loss, identity theft, and emotional harm. ScamShield is a student-built screening aid intended to help job seekers notice concerning language and decide what to verify next.</p><div className="method-steps">{steps.map(([n, title, text]) => <div className="method-step" key={n}><span>{n}</span><div><h3>{title}</h3><p>{text}</p></div></div>)}</div></section>
+      <aside className="method-aside"><section className="panel thresholds-panel"><h3><BadgeInfo size={17} /> Reading the score</h3><div className="threshold-row"><span className="risk-badge risk-low"><i className="risk-dot" />Low</span><span>0–29 points</span></div><div className="threshold-row"><span className="risk-badge risk-medium"><i className="risk-dot" />Medium</span><span>30–59 points</span></div><div className="threshold-row"><span className="risk-badge risk-high"><i className="risk-dot" />High</span><span>60–100 points</span></div><p>Scores summarize configured wording signals; they are not a probability of fraud.</p></section><section className="panel limits-panel"><h3><AlertTriangle size={17} /> Important limitations</h3><ul><li>Legitimate employers can use wording that triggers warnings.</li><li>Scams may contain no detectable signals or evade these rules.</li><li>ScamShield does not verify identities, companies, websites, email domains, or job listings.</li><li>No trained ML model is used until a trustworthy, documented dataset is supplied and a model is trained.</li><li>Do not share sensitive personal information or pay fees based on an unverified offer.</li></ul></section><section className="panel verify-panel"><h3><CheckCircle2 size={17} /> Verify independently</h3><p>Find the organization's official website yourself. Contact its recruiting team using details listed there—not contact information supplied in a suspicious message. Never pay for a job or share banking credentials to receive an offer.</p></section></aside></div>
+    <p className="method-disclaimer">This tool offers an automated estimate to support—not replace—your judgment. It cannot guarantee an opportunity is genuine or fraudulent.</p>
+  </div>;
+}

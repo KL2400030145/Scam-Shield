@@ -1,0 +1,35 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Java
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+*.class
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+ml-service/models/*
+!ml-service/models/.gitkeep
+ml-service/data/*
+!ml-service/data/.gitkeep
+
+# JavaScript
+node_modules/
+frontend/dist/
+frontend/coverage/
+
+# IDE / OS
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
